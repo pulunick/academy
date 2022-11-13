@@ -1,0 +1,39 @@
+package thread;
+
+import java.util.TimerTask;
+
+class Tictoc extends TimerTask implements Runnable {
+	int count = 0;
+
+	public Tictoc(int count) {
+		super();
+		this.count = count;
+	};
+
+	@Override
+	public void run() {
+
+		for (int i = count; i != 0; i--) {
+			// count값이 0일때까지 감소
+			System.out.println("[카운트다운 : " + count + "]");
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			count--; // count 감소
+			if (i == 1) {
+				cancel(); // 타이머 종료
+				System.out.println("[카운트다운 : 종료]");
+				System.out.println("Happy New Year");
+			}
+		}
+	}
+}
+
+public class Ex11 {
+	public static void main(String[] args) {
+		Tictoc timer = new Tictoc(5);
+		timer.run();
+	}
+}

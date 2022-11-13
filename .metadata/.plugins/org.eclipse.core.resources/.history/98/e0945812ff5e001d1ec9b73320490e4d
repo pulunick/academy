@@ -1,0 +1,32 @@
+package 김진형3A;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+
+public class Handler {
+	private List<Member> list = new ArrayList<Member>();
+
+	public void showList() {
+		for(Member s : list) {
+			s.showInfo();
+		}
+	}
+
+	public void insert(Member mem) {
+		
+	}
+
+	public Member find(String id) {
+		return null;
+	}
+
+	public int delete(Member mem) {
+		return 0;
+	}
+
+
+
+	
+}

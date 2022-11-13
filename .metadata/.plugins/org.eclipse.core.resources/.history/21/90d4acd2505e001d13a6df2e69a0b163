@@ -1,0 +1,8 @@
+package collection;
+
+public class Ex07 {
+	public static void main(String[] args) {
+		String url = "https://apis.data.go.kr/1360000/MidFcstInfoService/getMidFcst";
+	}
+
+}

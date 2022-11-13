@@ -1,0 +1,28 @@
+package collection;
+
+import java.util.HashMap;
+
+class MyChromeDriver {
+	
+	private final String chromePath = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
+	private final Runtime rt = Runtime.getRuntime();
+	
+	public void open(String url) {
+		run(url);
+	}
+	public void open(String url, HashMap<String, String> param) {
+		
+	}
+	private void run(String url) {
+		try {
+			rt.exec(chromePath + " " + url);
+		} catch (Exception e) {}
+	}
+}
+
+public class Ex08 {
+	public static void main(String[] args) {
+		MyChromeDriver ob = new MyChromeDriver();
+		ob.open("mgr.kgitbank.com");
+	}
+}

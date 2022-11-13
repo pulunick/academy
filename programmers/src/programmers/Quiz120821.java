@@ -1,0 +1,45 @@
+package programmers;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Quiz120821 {
+	public static void main(String[] args) {
+		
+		String[] arr = {"We", "are", "the", "world!"};
+		
+		int[] answer = {};
+		
+		System.out.println(arr[0].length());
+		
+		answer[0] = arr[0].length();
+		answer[1] = arr[1].length();
+		answer[2] = arr[2].length();
+		answer[3] = arr[3].length();
+		
+		for(int answers : answer) {
+			System.out.println(answers);
+		}
+//
+//		ArrayList<String> text = new ArrayList<String>();
+//		text.add("We");
+//		text.add("are");
+//		text.add("the");
+//		text.add("world!");
+//
+//		int len1 = text.size();
+//
+//		System.out.println(len1);
+		
+		
+		
+		
+
+	
+	
+		
+		
+
+	}
+
+}

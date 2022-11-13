@@ -1,0 +1,26 @@
+package programmers;
+
+
+
+public class Quiz120821 {
+	public static void main(String[] args) {
+		int money = 15500;
+		int aa = 5500;
+		
+		int[] answer = new int[2];
+		
+		for(int i = 0; i < answer.length; i++) {
+			if(i==0) {
+				answer[0] = money / aa;
+			}
+			else {answer[1] = money % aa;}
+			
+//			System.out.println(answer[1]);
+			
+		}
+		System.out.println("머쓱이는 아이스아메리카노를" + answer[0] + "잔 살 수 있고 거스름돈은" + answer[1] + "원 이다");
+		
+
+	}
+
+}

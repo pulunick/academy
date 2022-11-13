@@ -1,0 +1,56 @@
+package thread;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+
+class Timer extends Object implements Runnable {
+	private int second;
+	
+	public Timer(int second) {
+		this.second = second;
+	}
+	
+	public void check() {
+	}
+
+	@Override
+	public void run() {
+
+		while (true) {
+			for (int i = second; i != -1; i--) {
+				System.out.printf("[%02d:%02d]\t", i / 60, i % 60);
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
+	}
+}
+
+public class Ex09 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		List<String> list = new ArrayList<String>();
+		String input = null;
+		// 10초 동안 얼마나 많은 문자열을 입력할 수 있는지 확인하는 코드를 작성해보세요
+		
+		Timer timer = new Timer(5);
+
+		while (true) {
+			System.out.println("문자열을 마구마구 입력하세요 : ");
+			input = sc.nextLine();
+			list.add(input);
+			timer.run();	
+			break;
+		}
+		
+		// 10초가 지나면 지금까지 입력받은 모든 문자열을 한줄씩 출력합니다
+
+		
+	}
+}

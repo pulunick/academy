@@ -1,0 +1,19 @@
+package programmers;
+
+
+
+public class Quiz120821 {
+	public static void main(String[] args) {
+		String my = "jaron";
+		
+		String myanswer = new StringBuffer(my).reverse().toString();
+		
+		
+		System.out.println(myanswer);
+
+    }
+		
+		
+		
+	}
+

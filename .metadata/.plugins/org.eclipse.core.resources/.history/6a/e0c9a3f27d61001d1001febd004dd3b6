@@ -1,0 +1,30 @@
+package serialize;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+
+public class Ex06 {
+	public static void main(String[] args) throws IOException {
+		
+//		FileInputStream fis = new FileInputStream("ex03.dat");
+		
+		// 웹 상의 이미지 주소를 작성
+		String path = "https://search.naver.com/search.naver?where=image&sm=tab_jum&query=%EA%B2%90%EC%A7%80#";
+		URL url = new URL(path);
+		InputStream fis = url.openStream();
+		FileOutputStream fos = new FileOutputStream("겐지.jpg");
+		
+		byte[] buffer = new byte[1024];
+		int readBytes;
+		
+		while((readBytes = fis.read(buffer)) != -1) {
+			fos.write(buffer, 0, readBytes);
+			System.out.printf("=== %d byte ===\n", readBytes);
+		}
+		
+		fis.close();
+		fos.close();
+	}
+}

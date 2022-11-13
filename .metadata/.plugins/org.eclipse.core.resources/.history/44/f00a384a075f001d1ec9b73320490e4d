@@ -1,0 +1,120 @@
+package 김진형3A;
+
+import java.util.Scanner;
+
+public class Main {
+	private static Handler handler = new Handler();
+
+	public static void main(String[] args) {
+		
+		Seller mem1 = new Seller("hwo3094", "121212", "김진형", "으라차차");
+		Customer mem2 = new Customer("hwo3333", "1111", "김형진", "부산 남구");
+		handler.insert(mem1);
+		handler.insert(mem2);
+		Scanner sc = new Scanner(System.in);
+		int select, row;
+		Member mem = null;
+		String id;
+
+		System.out.println("★회원 관리 시스템★");
+
+		do {
+			System.out.println("1. 전체목록");
+			System.out.println("2. 회원가입");
+			System.out.println("3. 단일검색");
+			System.out.println("4. 회원삭제");
+			System.out.println("0. 종료");
+			System.out.print("선택 >>> ");
+			select = Integer.parseInt(sc.nextLine());
+
+			switch (select) {
+			case 1:// 목록
+				handler.showList();
+				break;
+			case 2:// 추가
+				System.out.print("회원 유형을 선택하세요 (1. 판매자 | 2. 구매자) : ");
+				select = Integer.parseInt(sc.nextLine());
+				if (select == 1)
+					mem = makeSeller(sc);
+				else if (select == 2)
+					mem = makeCustomer(sc);
+				else {
+					System.out.println("번호를 잘못 입력하셨습니다.");
+					
+					break;
+				}
+				handler.insert(mem);
+				System.out.println("회원 등록 완료!");
+				break;
+			case 3:// 검색
+				System.out.print("검색할 회원의 Id을 입력하세요 : ");
+				id = sc.nextLine();
+				mem = handler.find(id);
+				if (mem != null)
+					mem.showInfo();
+				else
+					System.out.println(id + "를 가진 회원을 찾을 수 없습니다.");
+				break;
+			case 4:// 삭제
+				System.out.print("삭제할 회원의 Id를 입력하세요 : ");
+				id = sc.nextLine();
+				mem = handler.find(id);
+				row = handler.delete(mem);
+				System.out.println(row == 1 ? "삭제 성공" : "삭제 실패");
+				break;
+			}
+			
+		} while (select != 0);
+		sc.close();
+		System.out.println("종료 !!");
+	}
+
+	private static Member makeSeller(Scanner sc) {
+		Seller mem;
+		String id;
+		String passward;
+		String name, storename;
+
+		System.out.print("id : ");
+		id = sc.nextLine();
+		while(handler.idCheck(id)) {
+			System.out.println("중복된 ID입니다. 다시 입력하세요");
+			System.out.print("id : ");
+			id = sc.nextLine();
+		}
+		{System.out.print("passward : ");
+		passward = sc.nextLine();
+		System.out.print("성함 : ");
+		name = sc.nextLine();
+		System.out.print("가게상호명 : ");
+		storename = sc.nextLine();}
+
+		mem = new Seller(id, passward, name, storename);
+		return mem;
+	}
+
+	private static Member makeCustomer(Scanner sc) {
+		Seller mem;
+		String id;
+		String passward;
+		String name, address;
+
+		System.out.print("id : ");
+		id = sc.nextLine();
+		while(handler.idCheck(id)) {
+			System.out.println("중복된 ID입니다. 다시 입력하세요");
+			System.out.print("id : ");
+			id = sc.nextLine();
+		}
+		System.out.print("passward : ");
+		passward = sc.nextLine();
+		System.out.print("성함 : ");
+		name = sc.nextLine();
+		System.out.print("가게상호명 : ");
+		address = sc.nextLine();
+
+		mem = new Seller(id, passward, name, address);
+		return mem;
+	}
+
+}

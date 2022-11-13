@@ -1,0 +1,90 @@
+package management;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import model.ComputerScienceStudent;
+import model.EnglishLinguistiscSudent;
+import model.Student;
+
+public class Handler {
+	
+	private List<Student> list = new ArrayList<Student>();
+
+	public void showList() {
+		for(Student s : list) {
+			s.showInfo();
+		}
+	}
+	
+	public void insert(Student st) {
+		list.add(st);
+	}
+	
+	public Student find(String name) {
+		for(Student s : list) {
+			if(s.getName().equals(name)){
+				return s;
+			}
+		}
+		return null;
+	}
+
+	public int delete(Student st) {
+		for(Student s : list) {
+			if( s == st) {
+				list.remove(s);
+				return 1;
+			}
+		}
+		return 0;
+	}
+	public int update(Student st, String sub, int num) {
+		if( st instanceof EnglishLinguistiscSudent) {
+			EnglishLinguistiscSudent a = (EnglishLinguistiscSudent) st;
+			switch(sub) {
+			case "국어":
+				a.setKor(num);
+				return 1;
+			case "영어":
+				a.setEng(num);
+				return 1;
+			case "수학":
+				a.setMat(num);
+				return 1;
+			case "문학":
+				a.setLiteratrure(num);
+				return 1;
+			case "번역":
+				a.setTranslation(num);
+				return 1;
+			}
+			return 0;
+		}else {
+			ComputerScienceStudent a = (ComputerScienceStudent) st;
+			switch(sub) {
+			case "국어":
+				a.setKor(num);
+				return 1;
+			case "영어":
+				a.setEng(num);
+				return 1;
+			case "수학":
+				a.setMat(num);
+				return 1;
+			case "자바":
+				a.setJava(num);
+				return 1;
+			case "리눅스":
+				a.setLinux(num);
+				return 1;
+			case "네트워크":
+				a.setNetwork(num);
+				return 1;
+			}
+			return 0;
+		}
+		
+	}
+
+}

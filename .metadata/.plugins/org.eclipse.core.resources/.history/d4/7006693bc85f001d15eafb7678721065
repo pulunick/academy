@@ -1,0 +1,27 @@
+package exception;
+
+import java.lang.ArrayIndexOutOfBoundsException;
+import java.util.Scanner;
+
+public class Ex03 {
+	public static void main(String[] args) {
+		
+		int[] arr = { 10, 30, 20, 40, 50 };
+		Scanner sc = new Scanner(System.in);
+		int index;
+		
+		System.out.print("몇번째 정수를 출력할까요 : ");
+		try {
+			index = sc.nextInt();
+			System.out.printf("arr[%d] : %d\n", index, arr[index]);
+			
+		} catch(java.lang.ArrayIndexOutOfBoundsException e) {
+//			e.printStackTrace();
+			System.out.println("인덱스는 4번까지 있습니다.");
+		}
+		System.out.println("끝");
+		sc.close();
+		
+	}
+
+}

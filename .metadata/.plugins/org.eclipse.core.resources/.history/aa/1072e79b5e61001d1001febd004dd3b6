@@ -1,0 +1,17 @@
+package serialize;
+
+import java.util.Date;
+
+class Todo {
+	private String title;
+	private Date date;
+	public Todo(String title, Date date) {
+		
+		this.title = title;
+		this.date = date;
+	}
+}
+
+public class Ex03 {
+
+}
