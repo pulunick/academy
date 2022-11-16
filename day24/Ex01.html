@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex01</title>
+</head>
+<body>
+
+    <h1>div와 span</h1>
+    <hr>
+
+    <a href="https://www.advancedwebranking.com/seo/html-study">가장 많이 사용하는 HTML 태그</a>
+    <table border="1" cellpadding="10" cellspacing="0" style="margin: 20px auto;">
+        <tr>
+            <th>display</th>
+            <th>설명</th>
+        </tr>
+        <tr>
+            <td>block</td>
+            <td>
+                블럭을 하나하나 쌓아올리는 형식의 요소<br>
+                여러 블럭을 연속으로 배치하면, 화면에서 세로로 배치된다.<br>
+                block요소는 너비와 높이를 지정할 수 있다
+            </td>
+        </tr>
+        <tr>
+            <td>inline</td>
+            <td>
+                한 줄 안에서 옆으로 배치되는 형식의 요소<br>
+                여러 인라인을 연속으로 배치하면, 화면에서 가로로 배치된다.<br>
+                inline요소는 너비와 높이를 지정할 수 없다 (기본 너비 : 내용만큼만)
+            </td>
+        </tr>
+    </table>
+
+    <style>
+        div {
+            border: 1px solid red;
+        }
+        span {
+            border: 1px solid blue;
+        }
+        div, span {
+            padding: 10px;
+            font-size: 20px;
+        }
+    </style>
+
+    <div>div1</div>
+    <div>div2</div>
+    <div>div3</div>
+
+    <br>
+
+    <span>span1</span>
+    <span>span2</span>
+    <span>span3</span>
+
+    <span>Hello, word !!</span>
+
+    <br><br>
+
+    <div>Hello, world !!</div>
+    <!--div는 혼자사 한줄을 차지하는 욕심쟁이-->
+    <!---->
+
+    <hr>
+
+    <div>
+        <div><!--첫번째 줄-->
+            <span>이름</span>
+            <span>나이</span>
+        </div>
+        <div>
+
+            <span>이지은</span>
+            <span>30</span>
+        </div>
+        <div>
+
+            <span>홍진호</span>
+            <span>41</span>
+        </div>
+    </div>
+
+
+</body>
+</html>
