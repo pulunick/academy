@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex06.html</title>
+    <style>
+        div.wrap {
+            border: 3px solid black;
+            width: 300px;
+            height: 300px;
+            margin: 50px auto;
+        }
+        .item {
+            width: 100px;
+            height: 100px;  /* 요소의 높이가 100px */
+
+            line-height: 100px; /* 요소안에 글자를 쓸 때, 한줄의 높이가 100px */
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+        div#item1 {
+            background-color: red;
+            margin-left: auto;   /* 위 오 아 왼 */
+        }
+        div#item2 {
+            background-color: green;    
+            
+        }
+        #item3 {
+            display: block;
+            background-color: blue;
+            margin: 0 auto;
+        }
+        
+
+
+    </style>
+</head>
+<body>
+
+    <h1>간단한 block요소 배치</h1>
+    <hr>
+
+    <div class="wrap">
+        <div id="item1" class="item">1</div>
+        <div id="item2" class="item">2</div>
+        <span id="item3" class="item">3</span>
+
+
+    </div>
+    
+</body>
+</html>
