@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex02.html</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td, th {
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+        }
+        pre {
+            font-family: 'consolas';
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px;
+            background-color: #eee;
+        }
+        thead > tr {
+            background-color: black;
+            color: white;
+        }
+        tbody th {
+            background-color: darkgray;
+        }
+        tbody > tr:hover {
+            background-color: skyblue;
+        }
+        tbody> tr > td:nth-child(1) {
+            font-weight: bold;
+            color: red;
+        }
+        tbody > tr:nth-child(2n) {
+            background-color: lightblue;
+        }
+        tbody > tr:nth-child(2n + 1) > * { /* 모든 선택자: *  */
+            background-color: aquamarine !important;
+            /* 이 속성은 매우 중요하므로, 다른 속성보다 높은 우선순위를 적용한다 */
+
+        }
+        /*
+            *은 모든 요소를 선택할 때 사용한다
+            단, *만 단독으로 사용하지 말 것. 브라우저의 성능이 떨어질 수 있다
+        */
+    </style>
+</head>
+<body>
+
+    <h1>기초적인 css 선택자</h1>
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th>형식</th>
+                <th>예시</th>
+                <th>설명</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>태그 선택자</td>
+                <td>
+                    <!-- pre 태그 내부에서는 엔터가 줄바꿈으로 작동한다 -->
+<pre>
+div {
+    margin: 0;
+}
+</pre>
+                </td>
+                <td>지정한 태그에 해당하는 모든 요소를 선택한다</td>
+            </tr>
+            <tr>
+                <td>클래스 선택자</td>
+                <td>
+<pre>
+.item {
+    padding: 10px;
+}
+</pre>
+                </td>
+                <td>
+                    지정한 클래스에 해당하는 모든 요소를 선택한다
+                </td>
+            </tr>
+            
+            <tr>
+                <td>클래스 선택자</td>
+                <td>
+<pre>
+#logo {
+    font-weight: bold;
+    text-align: center;
+}
+</pre>
+                </td>
+                <td>
+                    지정한 id에 해당하는 모든 요소를 선택한다
+                </td>
+            </tr>
+            <tr>
+                <td>자손 선택자 ( A > B )</td>
+                <td>
+<pre>
+ul > li {
+    color: blue;
+}
+</pre>
+                </td>
+                <td>
+                    A 바로 하위에 있는 B들을 선택한다
+                </td>
+            </tr>
+
+            <tr>
+                <th>후손 선택자 ( A B )</th>
+                <td>
+<pre>
+#nav .item {
+    width: 100px;
+}
+</pre>
+                </td>
+                <td>
+                    A 하위에 있는 B들을 선택한다.<br>
+                    (포함만 되어 있으면 단계상관없이 적용)
+                </td>
+            </tr>
+
+            <tr>
+                <th>가상 선택자 ( : )</th>
+                <td>
+<pre>
+a:hover {
+    text-decoration: underline;
+}
+
+</pre>
+                </td>
+                <td>
+                    지정한 요소가 특정 조건을 만족할 때,<br>
+                    스타일을 적용한다
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+    
+    
+</body>
+</html>

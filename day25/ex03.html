@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex03.html</title>
+    <style>
+        div.box {
+            width: 300px;
+            height: 300px;
+            border:3px solid black;
+            margin: 20px;
+            position: relative;
+        }
+        div.item {
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            color: white;
+            background-color: red;
+            font-size: 24px;
+            font-weight: bold;
+
+        }
+        div.main {
+            width: 300px;
+            position: absolute;
+            top: 150px;
+            border-top: 2px solid lightpink;
+            color: #dadada;
+            z-index: 5;
+        }
+        div.cross {
+            height: 300px;
+            position: absolute;
+            left: 150px;
+            border-left: 2px solid skyblue;
+            color: #dadada;
+            z-index: 4;
+        }
+
+        #box0 {
+            display: flex;
+
+            justify-content: center;
+            /* 중침축(main-axis)을 기준으로 내부 요소를 정렬한다 */
+
+            align-items: center;
+            /* 교차축(cross-axis)을 기준으로 내부 요소를 정렬한다 */
+        }
+
+        div.wrap {
+            display: flex;
+            flex-flow: wrap;
+            /* 지정한 크기를 벗어나려고 하면, 다음 줄로 넘겨서 배치한다 */
+
+            border: 2px solid #dadada;
+            width: 1100px;
+            margin: 20px auto;
+        }
+        #box1 {
+            display: flex;
+            justify-content: flex-start;
+            align-items:flex-start;
+        }
+        #box2 {
+            display: flex;
+            justify-content: center;
+            align-items:flex-start;
+        }
+        #box3 {
+            display: flex;
+            justify-content: flex-end;
+            align-items:flex-start;
+        }
+        #box4 {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        #box5 {
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+        #box6 {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        #box7 {
+            display: flex;
+            justify-content: flex-start;
+            align-items:flex-end;
+        }
+        #box8 {
+            display: flex;
+            justify-content: center;
+            align-items:flex-end;
+        }
+        #box9 {
+            display: flex;
+            justify-content: flex-end;
+            align-items:flex-end;
+        }
+
+        div.box2 {
+            width: 100%;
+            height: 100px;
+            margin: 20px auto;
+        }
+
+        #box2-1 {
+            display: flex;
+            justify-content: space-between;
+        }
+        #box2-2 {
+            display: flex;
+            justify-content: space-around;
+        }
+        #box2-3 {
+            display: flex;
+            justify-content: center;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <h1>flex</h1>
+    <hr>
+    <div id="box0" class="box">
+        <div class="main"></div>
+        <div class="cross"></div>
+        <div class="item">1</div>
+        
+    </div>
+
+    <div class="wrap">
+        <div id="box1" class="box">
+            <div class="main"></div>
+            <div class="cross"></div>
+            <div class="item">1</div>
+        </div>
+        <div id="box2" class="box">
+            <div class="main"></div>
+            <div class="cross"></div>
+            <div class="item">2</div>
+        </div>
+        <div id="box3" class="box">
+            <div class="main"></div>
+            <div class="cross"></div>
+            <div class="item">3</div>
+        </div>
+        <div id="box4" class="box">
+            <div class="main"></div>
+            <div class="cross"></div>
+            <div class="item">4</div>
+        </div>
+        <div id="box5" class="box">
+            <div class="main"></div>
+            <div class="cross"></div>
+            <div class="item">5</div>
+        </div>
+        <div id="box6" class="box">
+            <div class="main"></div>
+            <div class="cross"></div>
+            <div class="item">6</div>
+        </div>
+        <div id="box7" class="box">
+            <div class="main"></div>
+            <div class="cross"></div>
+            <div class="item">7</div>
+        </div>
+        <div id="box8" class="box">
+            <div class="main"></div>
+            <div class="cross"></div>
+            <div class="item">8</div>
+        </div>
+        <div id="box9" class="box">
+            <div class="main"></div>
+            <div class="cross"></div>
+            <div class="item">9</div>
+        </div>
+    </div>
+    
+    <div class="wrap">
+        <div id="box2-1" class="box2">
+            <div class="item">A</div>
+            <div class="item">B</div>
+            <div class="item">C</div>
+        </div>
+
+        <div id="box2-2" class="box2">
+            <div class="item">A</div>
+            <div class="item">B</div>
+            <div class="item">C</div>
+        </div>
+        <div id="box2-3" class="box2">
+            <div class="item">A</div>
+            <div class="item">B</div>
+            <div class="item">C</div>
+        </div>
+    </div>
+
+
+</body>
+</html>

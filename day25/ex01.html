@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            cursor: pointer;
+            border-radius: 20px;
+            color: #434343;
+            background-color: antiquewhite;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <h1>자주 사용하는 태그 (2)</h1>
+    <hr>
+
+    <h3>unorderd list</h3>
+    <ul type="square"> <!--unorded list-->
+        <!--ul태그는 패딩이 자동으로 작동한다 left-->
+        <li>국밥</li>
+        <!--ul태그 안에 ul태그는 li에 써줘야 한다-->
+        <li>
+            초밥
+            <ul>
+                <li>소고기초밥</li>
+                <li>연어초밥</li>
+                <li>새우초밥</li>
+                <li>유부초밥</li>
+            </ul>
+        </li>
+        <li>돈까스</li>
+        <li>서브웨이</li>
+        <li>한솥도시락</li>
+    </ul>
+
+    <h3>ordered list</h3>
+    <ol type="1">
+        <li>Java</li>
+        <li>HTML</li>
+        <li>Css</li>
+        <li>Servlet</li>
+        <li>JSP</li>
+        <li>
+            Spring Framework
+            <ol type="A">
+                <li>DI</li>
+                <li>AOP</li>
+                <li>MVC</li>
+                <li>REST</li>
+                <li>WebSocket</li>
+            </ol>
+
+        </li>
+        <li>Spring Boot</li>
+        <li>mybatis</li>
+        <li>JPA</li>
+    </ol>
+
+    <h3>button</h3>
+    <button>버튼1</button>
+    <button>버튼2</button>
+    <button>버튼3</button>
+
+    <h3>a (anchor), link</h3>
+
+    <p>
+        <a>대상이 없는 a태그</a>
+    </p>
+    <p>
+        <a href="calmdownman.jpg">침착맨</a><br>
+        a 태그의 대상은 모든 유형의 파일 혹은 주소가 될 수 있다.<br>
+        웹 문서라면, 요청의 결과를 화면에 출력하고,<br>
+        브라우저가 처리 가능한 이미지, 오디오, 영상이라면 화면에 보여주고,<br>
+        브라우저가 처리 불가능한 파일이라면 다운로드를 제공한다
+    </p>
+    <p>
+        <a href="day01.zip">압축파일</a>
+        href속성의 주소가 상대경로라면, 현재 문서위치에서 대상을 찾는다<br>
+        href속성의 주소가 절대경로라면 (https://, http://, ftp://)
+        다른 사이트를 대상으로 할 수 있다<br>
+        <strong>a 태그는 웹 요청을 만들어내는 태그다</strong>
+    </p>
+    <p>
+        <a href="https://www.naver.com" target="_blank">새 탭에서 네이버</a>
+
+    </p>
+    <p>
+        <a href="#">id를 지정하여, 현재 문서 내부에서의 이동</a><br>
+        <a href="#test">id를 지정하여, 현재 문서 내부에서의 이동</a>><br>
+        <h4>현재 문서 내부 이동은 스타일을 적용하면, 부드러운 스크롤 가능</h4><br>
+        <!--a 태그 안에는 인라인 태그를 넣어 주는 것이 좋다-->
+    </p>
+    <div style="width: 100%; height: 1000px;">
+        
+    </div>
+    <div id="test">
+        <button>여기는 문서 마지막입니다</button>
+    </div>
+    <div>
+        <h4>
+            a 태그의 href 속성은 그대로 브라우저의 주소창에 반영된다
+        </h4>
+        <a href="https://search.naver.com/search.naver?query=아이유"><button>아이유 검색</button></a>
+    </div>
+    <div style="width: 100%; height: 1000px;">
+    
+    
+</body>
+</html>
