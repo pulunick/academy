@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td, th {
+            padding: 5px 10px;
+            border: 1px solid grey;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>input 관련 태그</h1>
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th colspan="2">태그</th>
+                <th>예시</th>
+                <th>설명</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th rowspan="13">input</th>
+                <th>type="text"</th>
+                <td>
+                    <input type="text" value="미리 입력된 값">
+                </td>
+                <td>사용자에게 문자열 기반의 텍스트를 입력받기 위한 태그</td>
+            </tr>
+            <tr>
+                <th>type="number"</th>
+                <td>
+                    <input type="number" placeholder="정수를 입력하세요">
+                </td>
+                <td>사용자에게 정수 및 실수 기반의 텍스트를 입력받기 위한 태그</td>
+            </tr>
+            <tr>
+                <th>type="password"</th>
+                <td>
+                    <input type="password" autofocus>
+                </td>
+                <td>
+                    사용자에게 문자열 기반의 텍스트를 입력받기 위한 태그<br>
+                    입력받은 내용을 화면상 표시하지 않는다 (가려서 보여준다)
+                </td>
+            </tr>
+            <tr>
+                <th>type="email"</th>
+                <td>
+                    <form>
+                        <input type="email" required>
+                        <input type="submit">
+                    </form>
+                </td>
+                <td>
+                    사용자에게 문자열 기반의 이메일 주소를 입력받는다<br>
+                    형식에 맞지 않으면, 제출할 수 없다
+                </td>
+            </tr>
+            <tr>
+                <th>type="radio"</th>
+                <td>
+                    <input type="radio" name="adult">성인
+                    <input type="radio" name="adult">미성년자
+                </td>
+                <td>
+                    사용자에게 마우스를 이용하여 항목을 선택한다<br>
+                    이름이 같은 항목은 여러개 중 하나만 선택할 수 있다
+                </td>
+            </tr>
+            <tr>
+                <th>type="checkbox"</th>
+                <td>
+                    <input type="checkbox" name="color">빨강
+                    <input type="checkbox" name="color">초록
+                    <input type="checkbox" name="color">파랑
+                </td>
+                <td>
+                    사용자에게 마우스를 이용하여 항목을 선택한다<br>
+                    이름이 같은 항목중 여러개를 중복 선택할 수 있다
+                </td>
+            </tr>
+            <tr>
+                <th>type="range"</th>
+                <td>
+                    <input type="range">
+                </td>
+                <td>
+                    사용자에게 마우스로 숫자의 범위를 지정하여 입력받는다<br>
+                    입력값의 범위를 지정할 수도 있다
+                </td>
+            </tr>
+            <tr>
+                <th>type="date"</th>
+                <td>
+                    <input type="date">
+                </td>
+                <td>
+                    사용자에게 키보드 및 마우스로 날짜를 입력받는다<br>
+                    날짜는 yyyy-MM-dd 형식의 텍스트이다
+                </td>
+            </tr>
+            <tr>
+                <th>type="time"</th>
+                <td>
+                    <input type="time">
+                </td>
+                <td>
+                    사용자에게 키보드 및 마우스로 시간을 입력받는다<br>
+                    시간은 a hh:mm 형식의 텍스트이다
+                </td>
+            </tr>
+            <tr>
+                <th>type="file"</th>
+                <td>
+                    <input type="file">
+                </td>
+                <td>
+                    사용자에게 첨부 파일을 입력받는다<br>
+                    파일은 문자열 기반이 아니므로, 별도의 규칙이 필요하다
+                </td>
+            </tr>
+            <tr>
+                <th>type="hidden"</th>
+                <td>
+                    <input type="hidden" name="day" value="friday">
+                    <input type="submit" value="나는 hidden 이 아니다"
+                </td>
+                <td>
+                    화면에 나타나지 않는 유형의 input 값을 만들어낸다<br>
+                    input의 type이 hidden이면 display속성이 none 이다(자리차지 없음)
+                </td>
+            </tr>
+            <tr>
+                <th>type="submit"</th>
+                <td>
+                    <input type="submit">
+                </td>
+                <td>
+                    form 태그 내부의 input 및 입력 요소의 값을 action에 전달한다<br>
+                    button 태그가 form 태그 내부에 있다면 동일한 역할을 수행한다
+                </td>
+            </tr>
+            <tr>
+                <th>type="button"</th>
+                <td>
+                    <input type="button" value="버튼">
+                </td>
+                <td>
+                    외형 상 일반 button 및 submit과 동일하지만 아무런 작동이 없다<br>
+                    주로, javascript를 이용하여 form 내부에서 이벤트를 부여하기 위해 사용한다
+                </td>
+            </tr>
+
+            <tr>
+                <th colspan="2">select</th>
+                <td>
+                    <select name="location">
+                        <option>=== 거주 지역을 선택하세요 ===</option>
+                        <option value="seoul">서울</option>
+                        <option value="incheon">인천</option>
+                        <option value="daejeon">대전</option>
+                        <option value="daegu">대구</option>
+                        <option value="ulsan">울산</option>
+                        <option value="gwangju">광주</option>
+                        <option value="busan">부산</option>
+                        <option value="jeju">제주</option>
+                        <option value="etc">기타</option>
+                    </select>
+                </td>
+                <td>
+                    여러 목록 중 하나를 선택하여 값을 지정한다<br>
+                    기능 상 input type="radio" 와 유사하다
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2">textarea</th>
+                <td>
+                    <textarea rows="5" cols="20" name="content"
+                            placeholder="바르고 고운 말을 이용합시다"></textarea>
+                            <!--textarea는 엔터키로 구분하지않는다.-->
+                </td>
+                <td>
+                    여러 줄에 걸쳐서 입력받는 필드를 생성한다<br>
+                    pre 태그와 마찬가지로, 엔터를 줄바꿈으로 식별한다
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    

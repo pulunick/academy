@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border: 1px dashed black;
+        }
+        #root {
+            width: 1200px;
+            margin: auto;
+        }
+        #lang {
+            display: flex;
+            justify-content: flex-end;
+        }
+        #form {
+            width: 800px;
+            margin: auto;
+        }
+        #form > div {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="root">
+        <div id="lang">
+            <select>
+                <option>한국어</option>
+                <option>English</option>
+                <option>中文</option>
+            </select>
+        </div>
+        <div id="form">
+
+            <div class="logo">NAVER</div>
+            <div class="item">
+                <div class="title">아이디</div>
+                <div class="input">
+                    <input type="text">
+                    @naver.com
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+</body>
+</html>

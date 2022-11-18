@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div#root {
+            border: 3px solid black;
+            padding: 50px 0px 50px 0px;
+            width: 800px;
+            height: 1000px;
+            margin: auto;
+        }
+        #lang {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .format {
+            border: 3px solid black;
+            padding: 50px 0px 50px 0px;
+            margin: auto;
+            width: 500px;
+        }
+        .head {
+            padding: 50px 0px 50px 0px;
+            margin: auto;
+            width: 500px;
+            text-align: center;
+        }
+        .pass {
+            margin: auto;
+            display: inline-block;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+            width: 500px;
+            height: 45px;
+            background-color: white;
+
+            display: flex;
+        }
+        ul>li {
+            display: block;
+    position: relative;
+    height: 61px;
+    padding-top: 17px;
+    border: 1px solid #e3e3e3;
+    border-bottom: 0;
+    border-radius: 6px 6px 0 0;
+    background-color: #f8f9fa;
+    text-align: center;
+    box-sizing: border-box;
+        }
+        ul>li:hover {
+            color: #f19f00;
+            background-image: -webkit-linear-gradient(-77deg, #313131 50%, #252525 50%);
+        }
+       
+    
+
+    </style>
+</head>
+<body>
+    <div id="root">
+        <div class="lang">
+            <select>
+                <option value="korean"> 한국어</option>
+                <option value="English">영어</option>
+                <option value="china">중국어</option>
+                <option value="china">중국어(간체)</option>
+               
+            </select>
+
+        </div>
+        <div class="form">
+            <h1 class="head">NAVER</h1>
+            <div class="format">
+                <ul>
+                    <li> <a href="">ID 로그인</a></li>
+                    <li> <a href="">일회용 번호</a></li>
+                    <li> <a href="">QR코드</a></li>
+                </ul>
+                
+                <div>
+                    <input type="id" placeholder="아이디">
+                </div>
+                <div>
+                    <input type="password" placeholder="비밀번호">
+                </div>
+                <div>
+                    <input type="radio" name="로그인 상태 유지">"로그인 상태 유지"
+                    <input type="range"> 보안
+                </div>
+                <div>
+                    로그인
+                </div>
+            </div>
+            <div class = "pass">
+                <div>비밀번호 찾기</div>
+                <div>아이디 찾기</div>
+                <div>회원 가입</div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
