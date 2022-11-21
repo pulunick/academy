@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        nav {
+            width: 1020px;
+            margin: auto;
+        }
+        ul, ol {
+            list-style: none;
+            padding-left: 0;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+            font-size: 13px;
+            font-weight: bold;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+        ul {
+            background-color: #061c25;
+            display: flex;
+        }
+        ol {
+            display: none;
+            position: absolute;
+            top: 37px;
+            left: 0;
+            width: 160px;
+            background-color: antiquewhite;
+            background-color: #123643;
+            border: 0.5px solid #00b2cf;
+        }
+        ul > li {
+            border-left: 1px solid black;
+            width: 100%;
+            height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            border-top: 3px solid #00b2cf;
+            border-bottom: 2px solid transparent;
+            color: white;
+        }
+        ul > li:hover {
+            border-bottom: 2px solid #00b2cf;
+            color: #00b2cf;
+        }
+        ul > li:last-child {
+            border-right: 1px solid black;
+        }
+        ol > li > a {
+            font-size: 12px;
+            font-weight: normal;
+            display: block;
+            padding: 5px 10px;
+            color: white;
+        }
+        ol > li > a:hover {
+            text-decoration: underline;
+        }
+        ul > li:hover > ol {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>lol.inven.co.kr 드랍다운 메뉴 따라하기</h1>
+    <hr>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="">홈</a>
+            </li>
+            <li>
+                <a href="">기록실</a>
+                <ol>
+                    <li><a href="">LoL 기록실 - 경기기록</a></li>
+                    <li><a href="">LoL 기록실 - 선수기록</a></li>
+                    <li><a href="">LoL 기록실 - 팀 통산</a></li>
+                    <li><a href="">LoL 기록실 - 선수 통산</a></li>
+                    <li><a href="">LoL 기록실 - 챔피언 픽/밴</a></li>
+                    <li><a href="">LoL 기록실 - 래더 랭킹</a></li>
+                    <li><a href="">LoL 프로팀 정보</a></li>
+                </ol>
+            </li>
+            <li>
+                <a href="">LCK 인벤</a>
+            </li>
+            <li>
+                <a href="">챔피언</a>
+                <ol>
+                    <li><a href="">LoL 챔피언 정보</a></li>
+                    <li><a href="">챔피언 능력치 랭킹</a></li>
+                    <li><a href="">실시간 챔피언 평가</a></li>
+                </ol>
+            </li>
+            <li>
+                <a href="">카운터픽</a>
+            </li>
+            <li>
+                <a href="">공략</a>
+            </li>
+            <li>
+                <a href="">스킨갤러리</a>
+            </li>
+            <li>
+                <a href="">방송/영상</a>
+            </li>
+            <li>
+                <a href="">LoL DB</a>
+                <ol>
+                    <li><a href="">프리시즌 룬 시뮬</a></li>
+                    <li><a href="">프리시즌 아이템 DB</a></li>
+                    <li><a href="">소환사 주문 DB</a></li>
+                </ol>
+            </li>
+        </ul>
+    </nav>
+    
+</body>
+</html>

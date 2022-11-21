@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap {
+            width: 229px;
+            display: flex;
+            flex-direction: column;
+        }
+        p {
+            border: 2px solid #dadada;
+            display: inline-block;
+        }
+        input {
+            all: unset;         /* 태그에 적용된 모든 기본 속성을 해제한다 */
+            padding: 5px 10px;
+            border: 2px solid transparent;  /* 두께는 있지만, 색상은 없다 (투명) */
+            font-weight: bold;
+        }
+        input[type="text"] {
+            background-color: antiquewhite;
+        }
+        input[name="pw"] {
+            background-color: lightgoldenrodyellow;
+        }
+        input[name="pw2"] {
+            background-color: lightskyblue;
+        }
+        input:hover {   /* onmouseover */
+            border: 2px solid hotpink;
+        }
+        input:focus {   /* onfocus  */
+            border: 2px solid black !important;
+        }
+        input[type="checkbox"] {
+            appearance: auto;
+        }
+        /* 특정 HTML 요소 다음에 나타나는 태그에 적용 */
+        input[value="red"]:checked + span {
+            color: red;
+        }
+        input[value="blue"]:checked + span {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>속성을 포함하여 선택하기</h1>
+    <hr>
+
+    <div class="wrap">
+        <p>
+            <input type="text" name="id" placeholder="아이디를 입력하세요">
+        </p>
+        <p>
+            <input type="password" name="pw" placeholder="비밀번호를 입력하세요">
+        </p>
+        <p>
+            <input type="password" name="pw2" placeholder="비밀번호 재확인">
+        </p>
+        <p>
+            <label>
+                <input type="checkbox" name="color" value="red">
+                <span>빨강</span>
+            </label>
+
+            <label>
+                <input type="checkbox" name="color" value="blue">
+                <span>파랑</span>
+            </label>
+        </p>
+    </div>
+
+
+    <style>
+        .image {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            border: 0.5px solid #dadada;
+            border-radius: 50%;
+            text-align: center;
+            color: #dadada;
+        }
+        input.hidden {
+            display: none;
+        }
+        input.hidden:checked + .image {
+            background-color: #03c75a;
+            border: 0.5px solid #03c75a;
+            color: white;
+        }
+    </style>
+
+    <div class="test">
+        <label>
+            <input class="hidden" type="checkbox">
+            <span class="image">✔</span>
+            <span>로그인 상태 유지</span>
+        </label>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex05.html</title>
+    <style>
+        ul, ol {
+            list-style: none;
+            padding-left: 0;
+        }
+        ul {
+            display: flex;
+        }
+        ul > li {
+            width: 200px;
+            border: 1px solid black;
+        }
+        ol {
+            margin-top: 10px;
+            margin-left: -1px;
+            display: none;
+            position: absolute;
+            border: 1px solid red;
+        }
+        ol > li {
+            width: 250px;
+        }
+        ul > li:hover > ol {
+            display: block;
+        }
+        li {
+            padding: 10px 0;
+        }
+        li:hover {
+            background-color: salmon;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>간단 드롭다운 메뉴 구현</h1>
+    <hr>
+
+    <nav><!--div와 똑같은 역할-->
+        <ul>
+            <li>메뉴 1</li>
+            <li>메뉴 2
+                <ol>
+                    <li>서브 메뉴 2-1</li>
+                    <li>서브 메뉴 2-2</li>
+                    <li>서브 메뉴 2-3</li>
+                </ol>
+            </li>
+            <li>메뉴 3
+                <ol>
+                    <li>서브 메뉴 3-1</li>
+                </ol>
+            </li>
+            <li>메뉴 4
+                <ol>
+                    <li>서브 메뉴 4-1</li>
+                    <li>서브 메뉴 4-2</li>
+                </ol>
+            </li>
+        </ul>
+    </nav>
+    
+</body>
+</html>

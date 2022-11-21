@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #root {
+            width: 900px;
+            margin: auto;
+            border: 2px solid #dadada;
+        }
+        section {
+            
+            display: flex;
+        }
+        div, header, nav, main, section, article, footer, aside {
+            margin: 5px;
+            padding: 5px;
+            border: 2px solid #dadada;
+        }
+        section {
+            border: 0;
+            margin: 0;
+            padding: 0;
+        }
+        article {
+            width: 60%;
+        }
+        aside {
+            width: 20%;
+        }
+        .right {
+            height: 250px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="root">
+        <header>
+            <h1>사이트 제목</h1>
+        </header>
+
+        <section>
+            <aside class="left">
+                <h2>사이드바</h2>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>Javascript</li>
+                </ul>
+            </aside>
+            <article>
+                <h2>본문</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro sed natus ut animi illum sequi adipisci quae aliquam quod, eligendi quam ipsum harum modi, est repellendus! Omnis, dolor amet. Ad?</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. In repudiandae esse nam inventore illo accusamus architecto et itaque corporis provident unde veniam, sequi deleniti delectus facilis doloremque? Mollitia, vero quibusdam.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ullam vel asperiores expedita nobis eum quia harum provident, aspernatur sed odit cum debitis beatae enim aperiam nam maiores ipsam. Repellat.</p>
+            </article>
+            <aside class="right">
+                <h2>사이드바</h2>
+                <ul>
+                    <li>항목1</li>
+                    <li>항목2</li>
+                    <li>항목3</li>
+                    <li>항목4</li>
+                </ul>
+            </aside>
+        </section>
+
+        <footer>
+            <h2>푸터</h2>
+            <p>저작권 정보</p>
+            <p>연락처 등</p>
+        </footer>
+    </div>
+
+</body>
+</html>

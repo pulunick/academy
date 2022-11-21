@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset {
+            position: relative;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+        }
+        .root > fieldset:nth-child(1) > img:first-child {
+            margin: 10px;
+        }
+        .root > fieldset:nth-child(2) > img:first-child {
+            float: left;
+            margin: 10px;
+        }
+        .root > fieldset:nth-child(3) > img:first-child {
+            float: right;
+            margin: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!--
+        이전 요소에 float을 적용하고,
+        그 다음 요소에는 float을 적용하지 않아도
+        자동으로 이전 요소의 float이 적용되는 경우가 있다
+
+        clear: both;
+        
+        속성을 사용하여, float: left, float: right 를 모두 해제하면 된다
+    -->
+
+    <h1>float</h1>
+    <hr>
+    <div class="root">
+
+        <fieldset>
+            <img src="img/다운로드.jpeg">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+             Amet nobis obcaecati suscipit non ad est voluptates?
+              Nulla quasi delectus cupiditate, facere at,
+               laudantium excepturi harum est, 
+               itaque asperiores porro exercitationem.
+            <img src="img/다운로드.jpeg">
+        </fieldset>
+        
+        <fieldset>
+            <img src="img/다운로드.jpeg">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet nobis obcaecati suscipit non ad est voluptates? Nulla quasi delectus cupiditate, facere at, laudantium excepturi harum est, itaque asperiores porro exercitationem.
+            <img src="img/다운로드.jpeg">
+        </fieldset>
+
+        <fieldset>
+            <img src="img/다운로드.jpeg">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet nobis obcaecati suscipit non ad est voluptates? Nulla quasi delectus cupiditate, facere at, laudantium excepturi harum est, itaque asperiores porro exercitationem.
+            <img src="img/다운로드.jpeg">
+        </fieldset>
+
+    </div>
+    
+</body>
+</html>
