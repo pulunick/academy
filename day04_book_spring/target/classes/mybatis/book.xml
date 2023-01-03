@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.itbank.repository.BookDAO">
+
+	<select id="selectListAll" resultType="book">
+		select 
+			idx, name, price, publisher 
+		from book4 
+		order by idx
+	</select>
+	
+	<select id="selectSearchList" parameterType="hashmap" resultType="book">
+		select idx, name, price, publisher 
+		from book4
+			where ${type} like '%${keyword}%'
+	</select>
+	
+	<!-- primitive 타입은 resultType을 명시하지 않는다 -->
+	<insert id="insertBook" parameterType="book">
+		insert into book4 values 
+			( 
+				book4_seq.nextval,
+				#{name}, 
+				#{author}, 
+				#{publisher}, 
+				#{publishDate}, 
+				#{price}, 
+				#{memo}, 
+				#{score})
+	</insert>
+	
+	<select id="selectOne" resultType="book" parameterType="int">
+		select * from book4 where idx=#{idx}
+	</select>
+	
+	<update id="update" parameterType="book">
+		update book4 set 
+			name=#{name}, 
+			author=#{author},
+			publisher=#{publisher},
+			publishDate=#{publishDate},
+			price=#{price},
+			memo=#{memo},
+			score=#{score}
+		where idx=#{idx}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from book4 where idx=#{idx}
+	</delete>
+	
+	
+	
+</mapper>
