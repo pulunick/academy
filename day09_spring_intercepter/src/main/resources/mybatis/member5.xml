@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.itbank.repository.Member5DAO">
+
+	<select id="getList" resultType="member5">
+		select *
+		from member5
+		order by idx
+	</select>
+	
+	<insert id="insert" parameterType="member5">
+		INSERT INTO member5 (userid, userpw, username, birth, gender)
+		values(#{userid}, #{userpw}, #{username}, #{birth}, #{gender})
+	
+	</insert>
+	
+	<select id="idcheck" parameterType="String" resultType="int">
+		SELECT COUNT(userid) FROM member5 WHERE userid= #{userid}
+	</select>
+	
+	<select id="idChecks" parameterType="String" resultType="int">
+		SELECT COUNT(userid) FROM member5 WHERE userid= #{userid}
+	</select>
+	
+	<select id="login" resultType="member5" parameterType="member5">
+		select *
+		from member5
+		where userid = #{userid}
+		and	userpw = #{userpw}
+	</select>
+	
+</mapper>
