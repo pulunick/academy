@@ -1,0 +1,33 @@
+package com.itbank.repository;
+
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import com.itbank.model.Member5DTO;
+
+@Repository
+public interface Member5DAO {
+
+// @Repository의 기능
+// 1) 스프링 MVC에서 DAO의 역할을 수행하는 스프링 빈으로 등록한다.
+// 2) 해당 클래스에서 발생하는 예외를 java.sql.DataAccessExceptin으로 형변환하여 throws 한다
+
+
+	List<Member5DTO> getList();
+
+	int insert(Member5DTO dto);
+
+	int idcheck(String userid);
+
+	int idChecks(String id);
+
+	Member5DTO login(Member5DTO dto);
+
+	Member5DTO selectOne(int idx);
+
+	int modify(Member5DTO dto);
+
+	int delete(int idx);
+
+}
