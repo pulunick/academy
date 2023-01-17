@@ -191,5 +191,6 @@ th{
 	<li><a href="${cpath }/join">회원가입</a></li>
 	<li><a href="${cpath }/${loginURL}">${loginMenu }</a></li>
 	<li><a href="${cpath }/board2?page=1">게시판</a></li>
+	<li><a href="${cpath }/ex01">테스트</a></li>
 </ul>
 

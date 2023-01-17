@@ -25,6 +25,10 @@
 		SELECT COUNT(userid) FROM member5 WHERE userid= #{userid}
 	</select>
 	
+	<select id="selectUseridCount" parameterType="String" resultType="int">
+		select count(*) from member5 where userid=#{inputId}
+	</select>
+	
 	<select id="login" resultType="member5" parameterType="member5">
 		select *
 		from member5

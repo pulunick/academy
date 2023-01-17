@@ -1,5 +1,6 @@
 package com.itbank.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -9,9 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.itbank.model.Board2DTO;
+import com.itbank.model.PagingDTO;
 import com.itbank.service.Board2Service;
 
 @Controller
@@ -20,58 +23,73 @@ public class Board2Controller {
 	@Autowired private Board2Service board2Service;
 	
 	@GetMapping("/board2")
-	public ModelAndView board(Integer page) {
+	public ModelAndView board(@RequestParam(defaultValue = "1") Integer page) {
 		ModelAndView mav = new ModelAndView("board2");
 		List<Board2DTO> list = board2Service.getBoard2List(page);
 		mav.addObject("list", list);
 		
-		if(page == null) {
-			page = 1;
-		}
 		int boardCount = board2Service.getBoard2Count();
-		int perPage = 10;
-		// 페이지 수 
-		int pageCount = boardCount / perPage;
-		if(boardCount % perPage != 0) {
-			pageCount += 1;
-		}
+		PagingDTO paging = new PagingDTO(page, boardCount);
+		mav.addObject("paging", paging);
 		
-		int pageNum_cnt = 5; // 한 번에 띄울 번호
-		// 표시되는 페이지 번호 중 마지막 번호
-		int endPageNum = (int)(Math.ceil((double)page / (double)pageNum_cnt) * pageNum_cnt);
-
-		// 표시되는 페이지 번호 중 첫번째 번호
-		int startPageNum = endPageNum - (pageNum_cnt - 1);
+		return mav;
 		
-		// 마지막 번호 재계산
-		int endPageNum_tmp = (int)(Math.ceil((double)boardCount / (double)pageNum_cnt));
-		 
-		if(endPageNum > endPageNum_tmp) {
-		 endPageNum = endPageNum_tmp;
-		}
+//		if(page == null) {
+//			page = 1;
+//		}
+//		int perPage = 10;
+//		// 페이지 수 
+//		int pageCount = boardCount / perPage;
+//		if(boardCount % perPage != 0) {
+//			pageCount += 1;
+//		}
+//		
+//		int pageNum_cnt = 5; // 한 번에 띄울 번호
+//		// 표시되는 페이지 번호 중 마지막 번호
+//		int endPageNum = (int)(Math.ceil((double)page / (double)pageNum_cnt) * pageNum_cnt);
+//
+//		// 표시되는 페이지 번호 중 첫번째 번호
+//		int startPageNum = endPageNum - (pageNum_cnt - 1);
+//		
+//		
+//		System.out.println(endPageNum);
+//		 
+//		if(endPageNum > pageCount) {
+//			endPageNum = pageCount;
+//		}
+//		System.out.println(pageCount);
+//		
+//		System.out.println(endPageNum);
+//		
+//		boolean prev = startPageNum == 1 ? false : true;
+//		boolean next = endPageNum == pageCount ? false : true;
+//		
+//		// 시작 및 끝 번호
+//		mav.addObject("startPageNum", startPageNum);
+//		mav.addObject("endPageNum", endPageNum);
+//		
+//
+//		// 이전 및 다음 
+//		mav.addObject("prev", prev);
+//		mav.addObject("next", next);
+//		
+//		mav.addObject("pageCount", pageCount);
+	
+	}
+	
+	@PostMapping("/board2")
+	public ModelAndView seachBoard2(@RequestParam HashMap<String, Object> param, Integer page) {
+		ModelAndView mav = new ModelAndView("board2");
+		List<Board2DTO> list = board2Service.getSearchList(param, page);
+		mav.addObject("list", list);
 		
-		boolean prev = startPageNum == 1 ? false : true;
-		boolean next = endPageNum + pageNum_cnt >= pageCount ? false : true;
+		int boardCount = board2Service.getBoard2Count();
+		PagingDTO paging = new PagingDTO(page, boardCount);
+		mav.addObject("paging", paging);
 		
-		// 시작 및 끝 번호
-		mav.addObject("startPageNum", startPageNum);
-		mav.addObject("endPageNum", endPageNum);
-		
-
-		// 이전 및 다음 
-		mav.addObject("prev", prev);
-		mav.addObject("next", next);
-		
-		mav.addObject("pageCount", pageCount);
 		return mav;
 	}
 	
-//	@PostMapping("/board2")
-//	public ModelAndView seachBoard2(@RequestParam HashMap<String, String> param, Integer page) {
-//		ModelAndView mav = new ModelAndView("board2");
-//		List<Board2DTO> list = bo
-//	}
-//	
 	@GetMapping("/board2/board2_write")
 	public String write() {
 		return "board2_write";

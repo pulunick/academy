@@ -30,4 +30,6 @@ public interface Member5DAO {
 
 	int delete(int idx);
 
+	int selectUseridCount(String inputId);
+
 }

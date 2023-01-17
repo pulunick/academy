@@ -1,19 +1,24 @@
 package com.itbank.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.swing.text.AbstractDocument.Content;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.itbank.model.Member5DTO;
@@ -28,6 +33,16 @@ public class Member5Controller {
 	public ModelAndView join() {
 		ModelAndView mav = new ModelAndView("join");
 		List<Member5DTO> list = member5Service.getList();
+		ClassPathResource resource = new ClassPathResource("agreement/agreement.txt");
+		Path path;
+		try {
+			path = Paths.get(resource.getURI());
+			List<String> agreement = Files.readAllLines(path);
+			agreement.forEach(System.out::println);
+			mav.addObject("agreement", agreement);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		mav.addObject("list", list);
 		return mav;
 	}

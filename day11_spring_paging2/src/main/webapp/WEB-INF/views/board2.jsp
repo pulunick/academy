@@ -4,7 +4,6 @@
 
 <div class="write-board-all">
 <h3>게시판</h3>
-
 	<div class="write-board-middle">
 	<div class="paging">
 		<ul>
@@ -36,17 +35,21 @@
 	    <div class="paging">
 
 	        <ul>
-	        	<c:if test="${prev }">
-		            <li><a href="${cpath }/board2?page=${startPageNum -1}">prev</a></li>
+	        	<c:if test="${paging.prev }">
+		            <li><a href="${cpath }/board2?page=1">첫번째로</a></li>
+		            <li><a href="${cpath }/board2?page=${paging.prevFive }">prev</a></li>
+		            <li><a href="${cpath }/board2?page=${paging.page -1}">한개씩prev</a></li>
 	        	</c:if>
-				<c:forEach var="num" begin="${startPageNum }" end="${endPageNum }">	
+				<c:forEach var="num" begin="${paging.startPageNum }" end="${paging.endPageNum }">	
 	    			<li class=${param.page == num ? 'active' : '' }>
 	    				<a class="aaaa"
 	    				href="${cpath }/board2?page=${num}">${num }</a>
 	    			</li>
 			    </c:forEach>
-			    <c:if test="${next }">
-	           		<li><a href="${cpath }/board2?page=${endPageNum + 1}">next</a></li>
+			    <c:if test="${paging.next }">
+	           		<li><a href="${cpath }/board2?page=${paging.page + 1}">한개씩next</a></li>
+	           		<li><a href="${cpath }/board2?page=${paging.nextFive }">next</a></li>
+	           		<li><a href="${cpath }/board2?page=${paging.pageCount }">맨끝으로</a></li>
 	            </c:if>
 	        </ul>
 	    </div>

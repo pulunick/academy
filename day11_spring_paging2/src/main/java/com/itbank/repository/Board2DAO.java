@@ -28,4 +28,7 @@ public interface Board2DAO {
 
 	int deleteBoard(int idx);
 
+	List<Board2DTO> getSearchList(HashMap<String, Object> param);
+
+
 }

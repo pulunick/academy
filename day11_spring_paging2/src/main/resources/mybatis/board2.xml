@@ -13,12 +13,14 @@
 		fetch first #{perPage} rows only
 	</select>
 	
-<!-- 	<select id="getSearchList" parameterType="hashmap" resultType="board"> -->
-<!-- 		select * -->
-<!-- 		from board -->
-<!-- 		where ${type} like '%${keyword}%' -->
-<!-- 		order by idx desc -->
-<!-- 	</select> -->
+	<select id="getSearchList" parameterType="Hashmap" resultType="board2">
+		select *
+		from board2
+		where ${type} like '%${keyword}%'
+		order by idx desc
+		offset #{offset} rows
+		fetch first #{perPage} rows only
+	</select>
 	
 	
 	<select id="selectOneBoard2" resultType="board2">
@@ -36,7 +38,6 @@
 	<select id="getBoard2Count" resultType="int">
 		select count(*) from board2
 	</select>
-	
 	
 	<insert id="addboard2" parameterType="board2">
 		insert into board2 (title, content, writer, ipaddr, uploadFile) 

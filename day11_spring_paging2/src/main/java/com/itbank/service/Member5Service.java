@@ -41,4 +41,8 @@ public class Member5Service {
 		return dao.delete(idx);
 	}
 
+	public int dupCheck(String inputId) {
+		return dao.selectUseridCount(inputId);
+	}
+
 }

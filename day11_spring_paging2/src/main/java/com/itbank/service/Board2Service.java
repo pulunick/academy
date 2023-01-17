@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.itbank.model.Board2DTO;
+import com.itbank.model.PagingDTO;
 import com.itbank.repository.Board2DAO;
 
 @Service
@@ -27,11 +28,23 @@ public class Board2Service {
 
 	public List<Board2DTO> getBoard2List(Integer page) {
 		HashMap<String, Object> param = new HashMap<String, Object>();
-		int perPage = 10;			
-		int offset = (page - 1) * perPage;	
+		int boardCount = dao.getBoard2Count();
+		PagingDTO paging = new PagingDTO(page, boardCount);
+		int offset = paging.getOffset();
+		int perPage = paging.getPerPage();
 		param.put("offset", offset);
 		param.put("perPage",perPage);
 		return dao.getBoard2List(param);
+	}
+	
+	public List<Board2DTO> getSearchList(HashMap<String, Object> param, Integer page) {
+		int boardCount = dao.getBoard2Count();
+		PagingDTO paging = new PagingDTO(page, boardCount);
+		int offset = paging.getOffset();
+		int perPage = paging.getPerPage();
+		param.put("offset", offset);
+		param.put("perPage", perPage);
+		return dao.getSearchList(param);
 	}
 	
 	public int getBoard2Count() {
@@ -96,7 +109,5 @@ public class Board2Service {
 	}
 
 
-	
-	
 
 }

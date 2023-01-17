@@ -16,6 +16,7 @@
 	<typeAliases>
 		<typeAlias type="com.itbank.model.Member5DTO" alias="member5" />
 		<typeAlias type="com.itbank.model.Board2DTO" alias="board2" />
+		<typeAlias type="com.itbank.model.PagingDTO" alias="paging" />
 	</typeAliases>
 	
 </configuration>

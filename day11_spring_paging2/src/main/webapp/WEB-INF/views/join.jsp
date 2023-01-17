@@ -4,8 +4,9 @@
 
 <div class="join">
 	<div>
-	<h3>회원가입</h3>
+		<h3>회원가입</h3>
 	</div>
+	
 
 <form method="POST" name=joinForm id="joinForm">
 	<table id="jointalbe">
@@ -14,9 +15,10 @@
 			<th><span>*</span>아이디</th>
 			<td>
 			<div class="id"> 
-				<input type="text" id="userid" name="userid" placeholder="ID" required >
+				<input type="text" id="userid" name="userid" placeholder="ID" autocomplete="off" required >
 					<input type="button" onclick="idOverlap()" value="중복확인"/>
-						
+					<input type="button" name="dupCheck" value="중복체크"><br>
+					<span class="dupResult"></span>
 			</div>
 			</td>
 		</tr>
@@ -62,12 +64,23 @@
 			</td>
 		</tr>
 		
-			<tr>
+		<tr>
 			<th><span>*</span>성별</th>
 			<td>
 			<div class="gender">
 				<label><input type="radio" name="gender" value="남성">남성</label>
 				<label><input type="radio" name="gender" value="여성">여성</label>
+			</div>
+			</td>
+		</tr>
+		
+		<tr>
+			<th><span>*</span>약관</th>
+			<td>
+			<div class="agreement">
+				<textarea class="agreement"  rows="4" cols="50">${agreement }</textarea>
+				<br>
+				<label><input type="checkbox" name="agreement" disabled required>동의합니다</label>
 			</div>
 			</td>
 		</tr>
@@ -84,7 +97,26 @@
 	</table>
 	
 </form>
+
+
 </div>
+
+<script>
+	// 스프링과 상관없이 단독으로 실행되는 자바스크립트
+	const agreement = document.querySelector('textarea.agreement')
+	const checkbox = document.querySelector('input[name="agreement"]')
+	
+	agreement.onscroll = function() {
+		const scrollTop = agreement.scrollTop
+		const scrollHeight = agreement.scrollHeight
+		
+		console.log(scrollTop, scrollHeight)
+		
+		if(scrollTop >= scrollHeight * 0.9) {
+			checkbox.removeAttribute('disabled')
+		}
+	}
+</script>
 
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -105,6 +137,26 @@
 			confirmMsg.style.color = wrongColor;
 			confirmMsg.innerHTML ="비밀번호 불일치";
 		}
+	}
+</script>
+
+<script>
+	// 스프링의 특정 주소로 요청하여 결과를 받고, 결과에 따라서 다른 메시지를 만들어내는 코드
+	const dupCheck = document.querySelector('input[name="dupCheck"]')
+	const dupResult = document.querySelector('span.dupResult')
+	
+	dupCheck.onclick = function(event) {
+		const inputId = document.querySelector('input[name="userid"]').value
+		const url = '${cpath}/dupCheck/' + inputId
+		
+		fetch(url)						// url로 요청하여
+		.then(resp => resp.text())		// 응답이 돌아오면, 응답을 문자열로 처리하여
+		.then(text => {					// 문자열을 이용하여 다음 코드를 진행합니다
+			const code = text.split(':')[0]		// 1 : 사용중, 0 : 중복없음	
+			const result = text.split(':')[1]
+			dupResult.innerText = result
+			dupResult.style.color = code == 1 ? 'red' : 'blue'
+		})
 	}
 </script>
 
