@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #root {
+            border: 2px solid black;
+            margin: 0;
+            padding: 0;
+            margin-top: 20px;
+        }
+        .item {
+            font-size: 19px;
+            border: 1px solid grey;
+            display: flex;
+        }
+        .item:hover {
+            background-color: antiquewhite;
+            
+        }
+        .item  > div {
+            padding: 5px 10px;
+            flex: 1;
+            text-align: center
+        }
+        
+        .item > div:not(div.avg) {
+            border-right: 1px solid grey;
+        }
+        .item:first-child {
+            background-color: aquamarine;
+        }
+        
+        
+    </style>
+</head>
+
+<body>
+    <h1>8_화면구현연습.html</h1>
+    <hr>
+
+    <div id="root">
+        <div class="item">
+           <div class="name">이름</div>
+           <div class="kor">국어성적</div>
+           <div class="eng">영어성적</div>
+           <div class="mat">수학성적</div>
+           <div class="sum">합계(300)</div>
+           <div class="avg">평균</div>
+            
+        </div>
+        
+    </div>
+
+    <script>
+        const arr = [{
+                name: '이지은',
+                kor: 100,
+                eng: 99,
+                mat: 87,
+            },
+            {
+                name: '홍진호',
+                kor: 70,
+                eng: 60,
+                mat: 87
+            },
+            {
+                name: '유재석',
+                kor: 55,
+                eng: 44,
+                mat: 87
+            },
+            {
+                name: '신동엽',
+                kor: 70,
+                eng: 69,
+                mat: 97
+            },
+            {
+                name: '강호동',
+                kor: 80,
+                eng: 45,
+                mat: 100
+            },
+        ]
+        
+        for(let i in arr) {
+            with(arr[i]) {
+                arr[i].getSum = function() {
+                    return kor + eng + mat
+                }
+                arr[i].getAverage = function() {
+                    return getSum() / 3
+                }
+            }
+        }
+        let output = '이름\t합계\t평균\n';
+        for (let i in arr)
+        {
+            with (arr[i])
+            {
+                output += name + '\t' + getSum() + '\t' + getAverage() + '\n';
+            }
+        }
+        alert(output);
+        
+        arr.forEach(arr => {
+            const item = document.createElement('div')
+            
+            const name = '<div class="name">' + arr.name + '</div>'
+            const kor = '<div class="kor">' + arr.kor + '점</div>'
+            const eng = '<div class="eng">' + arr.eng + '점</div>'
+            const mat = '<div class="mat">' + arr.mat + '점</div>'
+            const sum = '<div class="sum">' + arr.getSum() + '점</div>'
+            const avg = '<div class="avg">' + arr.getAverage().toFixed(1) + '점</div>'
+            
+            item.className = 'item'
+            item.innerHTML += name
+            item.innerHTML += kor
+            item.innerHTML += eng
+            item.innerHTML += mat
+            item.innerHTML += sum
+            item.innerHTML += avg
+            
+            root.appendChild(item)
+        })
+        
+       
+    </script>
+
+</body></html>

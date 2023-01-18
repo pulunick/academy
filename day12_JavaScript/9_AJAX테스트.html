@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+            #root {
+            border: 2px solid black;
+            margin: 0;
+            padding: 0;
+            margin-top: 20px;
+        }
+        .item {
+            font-size: 19px;
+            border: 1px solid grey;
+            display: flex;
+        }
+        .item:hover {
+            background-color: antiquewhite;
+            
+        }
+        .item  > div {
+            padding: 5px 10px;
+            flex: 1;
+            text-align: center
+        }
+        
+        .item > div:not(div.gender) {
+            border-right: 1px solid grey;
+        }
+        .item:first-child {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>9_AJAX테스트.html(DB 데이터로 만들기)</h1>
+    <hr>
+    <div id="root">
+       <div class="item">
+        <div class="idx">번호</div>
+           <div class="username">아이디</div>
+           <div class="userpw">비밀번호</div>
+           <div class="birth">생년월일</div>
+           <div class="gender">성별</div>
+       </div>
+    </div>
+
+    <script>
+        const root = document.getElementById('root')
+        const url = 'http://192.168.112.7:8080/member5'
+        
+        fetch(url)                  // 주소를 요청하면
+        .then(resp => resp.json())  // 응답을 받아서 json형태로 처리하여
+        .then(json => {             // json을 이용하여 코드를 진행하면 된다
+            const arr = json
+            console.log(arr)
+            console.log(new Date(arr[0].BIRTH).toISOString().split('T')[0])
+            arr.for
+            arr.forEach(arr => {
+                const item = document.createElement('div')
+//                const births = new Date(arr.BIRTH).toISOString().split('T')[0]
+                const births = new Date(arr.BIRTH)
+                const year = births.getFullYear()
+                const month = births.getMonth()+1
+                const day = births.getDate()
+                const birthsreal = year + "년 " +(("00"+month.toString()).slice(-2)) +"월 " +(("00"+day.toString()).slice(-2)) +"일"
+                
+                const userid = '<div class="uaserid">' + arr.USERID +'</div>'
+                const username = '<div class="uasername">' + arr.USERNAME +'</div>'
+                const gender = '<div class="gender">' + arr.GENDER +'</div>'
+                const birth = '<div class="birth">' + birthsreal + '</div>'
+                const idx = '<div class="idx">' + arr.IDX +'</div>'
+                const userpw = '<div class="userpw">' + arr.USERPW +'</div>'
+                
+                
+                item.className = 'item'
+                item.innerHTML += idx
+                item.innerHTML += userid
+                item.innerHTML += userpw
+                item.innerHTML += birth
+                item.innerHTML += gender
+                
+                root.appendChild(item)
+            })
+        })
+        
+    </script>
+
+</body></html>
