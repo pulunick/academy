@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.itbank.repository.ReplyDAO">
+
+<select id="replyList" parameterType="int" resultType="reply">
+	select
+		*
+	from replyl
+		where board_idx = #{idx}
+		order by idx
+</select>
+
+<insert id="writeReply" parameterType="reply">
+	insert into replyl
+			(board_idx, WRITER, content)
+		values
+			(#{board_idx}, #{writer}, #{content})
+</insert>
+<delete id="delete" parameterType="int">
+	delete replyl where idx = #{idx}
+</delete>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
